@@ -1,3 +1,5 @@
+#tables for python
+
 import mysql.connector
 
 mydb = mysql.connector.connect(
@@ -6,7 +8,6 @@ mydb = mysql.connector.connect(
   password="yourpassword"
 )
 
-print(mydb) 
+mycursor = mydb.cursor()
 
-#ADDING A COMMENT
-print("helloworld")
+mycursor.execute("CREATE DATABASE mydatabase")
