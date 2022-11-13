@@ -25,7 +25,6 @@ def add():
 
 add()
 
-
-       
+print("YEAH THIS IS NOT SO ADVANCED RIGHT NOW.")
     
 
