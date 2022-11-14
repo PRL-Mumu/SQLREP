@@ -1,12 +1,19 @@
-import mysql.connector
+from dbhelper import DBhelper
+     
+# Main code
 
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="yourusername",
-  password="yourpassword"
-)
+helper=DBhelper()
 
-print(mydb) 
+# helper.insert_user(126,"train","923123")
+# helper.insert_user(133,"john","12323")
+# helper.insert_user(124,"dev","988923")
+# helper.insert_user(125,"prithviraj","0912323")
+# helper.insert_user(127,"Joe","1235123") 
 
-#ADDING A COMMENT
-print("helloworld")
+
+
+#helper.delete_user(133)
+
+# helper.fetch_all()
+
+helper.update_user(133, "Jaa", "423312")
