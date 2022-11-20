@@ -8,12 +8,41 @@ class DBhelper:
       password="root123",
       database="prithvi")
 
+
+    query='create table if not exists bus(id int primary key, state char(20), bus int, citizen_id int, phone_no int)'
+    cur=self.mydb.cursor()
+    cur.execute(query)
+    
+    query='create table if not exists travelCard(CitizenId int primary key, Mode char(20), Traveltime varchar(20))'
+    cur=self.mydb.cursor()
+    cur.execute(query)
+
     query='create table if not exists user(UserId int primary key, userName varchar(200), phone varchar(12))'
     cur=self.mydb.cursor()
     cur.execute(query)
     print("Created")
   
-  #Insert
+#Insert in Bus Registration
+  def insert_Bus(self,citizenid,state,phone):
+    query="insert into bus(citizen_id,state,phone_no) values({},'{}','{}')".format(citizenid,state,phone)
+    # print(query)
+    cur=self.mydb.cursor()
+    cur.execute(query)
+    self.mydb.commit()
+    print("Bus Registration saved to DB")
+
+#Inser in Travel booking
+
+  def insert_Card(self,citizenid,mode,time):
+    query="insert into travelCard(CitizenId,Mode,Traveltime) values({},'{}','{}')".format(citizenid,mode,time)
+    # print(query)
+    cur=self.mydb.cursor()
+    cur.execute(query)
+    self.mydb.commit()
+    print("travel card saved to DB")
+
+  #Insert in user
+
   def insert_user(self,userid,username,phone):
     query="insert into user(userId,userName,phone) values({},'{}','{}')".format(userid,username,phone)
     # print(query)
