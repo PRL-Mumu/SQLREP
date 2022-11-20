@@ -21,6 +21,15 @@ class DBhelper:
     cur=self.mydb.cursor()
     cur.execute(query)
     print("Created")
+
+#Insert in Train Registration
+  def insert_Train(self,citizenid,state,phone):
+    query="insert into trainstations(citizen_id,station,phone_no) values({},'{}','{}')".format(citizenid,state,phone)
+    # print(query)
+    cur=self.mydb.cursor()
+    cur.execute(query)
+    self.mydb.commit()
+    print("Train Registration saved to DB")
   
 #Insert in Bus Registration
   def insert_Bus(self,citizenid,state,phone):
@@ -50,6 +59,14 @@ class DBhelper:
     cur.execute(query)
     self.mydb.commit()  
     print("user saved to DB")
+
+#Fetch_all_TravelStations
+  def Trainfetch(self):
+    query="select distinct station from trainstations"
+    cur=self.mydb.cursor()
+    cur.execute(query)
+    for row in cur:
+      return row
 
 #Fetch_all_self
 
