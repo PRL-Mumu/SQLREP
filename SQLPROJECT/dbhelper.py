@@ -8,6 +8,10 @@ class DBhelper:
       password="root123",
       database="prithvi")
 
+    query='create table if not exists cab(id int not null primary key auto_increment, Pickup char(20), CabDrop char(20), citizen_id int, Cabsize char(20))'
+    cur=self.mydb.cursor()
+    cur.execute(query)
+
     query='create table if not exists Airport(id int not null primary key auto_increment, state char(20), citizen_id int, phone_no int)'
     cur=self.mydb.cursor()
     cur.execute(query)
@@ -24,6 +28,15 @@ class DBhelper:
     cur=self.mydb.cursor()
     cur.execute(query)
     print("Created")
+
+#Insert in Cab Registration
+  def insert_Cab(self,citizen_id,pickloc,droploc,sizecab):
+    query="insert into cab(citizen_id,Pickup,CabDrop,Cabsize) values({},'{}','{}','{}')".format(citizen_id,pickloc,droploc,sizecab)
+    # print(query)
+    cur=self.mydb.cursor()
+    cur.execute(query)
+    self.mydb.commit()
+    print("Booking saved to DB")
 
 #Insert in Train Registration
   def insert_Train(self,citizenid,state,phone):
@@ -71,6 +84,14 @@ class DBhelper:
     cur.execute(query)
     self.mydb.commit()  
     print("user saved to DB")
+
+#Fetch_all_Cabfetch
+  def CabFetch(self):
+    query="select Pickup, CabDrop,Cabsize from cab"
+    cur=self.mydb.cursor()
+    cur.execute(query)
+    for row in cur:
+      return row
 
 #Fetch_all_TravelStations
   def Trainfetch(self):
