@@ -12,6 +12,10 @@ class DBhelper:
     cur=self.mydb.cursor()
     cur.execute(query)
 
+    query='create table if not exists trainstations(id int not null primary key auto_increment, station char(20), citizen_id int, phone_no int)'
+    cur=self.mydb.cursor()
+    cur.execute(query)
+
     query='create table if not exists Airport(id int not null primary key auto_increment, state char(20), citizen_id int, phone_no int)'
     cur=self.mydb.cursor()
     cur.execute(query)
