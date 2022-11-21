@@ -11,7 +11,8 @@ def main():
         print("Press 4 to update user")
         print("Press 5 to exit program")
         print()
-        
+        print("*******************************")
+        print(":>",end=" ")
         try:
             choice=int(input())
             if(choice == 1):
