@@ -13,7 +13,7 @@ def main():
                 State=input("Select State/Locality of Boarding station: ")
                 Citizenid=int(input("Enter your Citizen Id: "))
                 Phone_No=int(input("Enter your phone number:"))
-                db.insert_Train(Citizenid,State,Phone_No)
+                db.insert_Bus(Citizenid,State,Phone_No)
             else:
                 break
                 

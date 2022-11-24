@@ -20,7 +20,7 @@ class DBhelper:
     cur=self.mydb.cursor()
     cur.execute(query)
 
-    query='create table if not exists bus(id int not null primary key auto_increment, state char(20), bus int, citizen_id int, phone_no int)'
+    query='create table if not exists bus(id int not null primary key auto_increment, state char(20), citizen_id int, phone_no int)'
     cur=self.mydb.cursor()
     cur.execute(query)
     
